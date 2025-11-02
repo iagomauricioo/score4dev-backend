@@ -1,17 +1,23 @@
-package org.acme;
+package org.acme.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
+import org.acme.entity.vo.Username;
 
 import java.util.UUID;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "users")
 public class UserEntity extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     public UUID userId;
-    public String username;
+    @Embedded
+    public Username username;
     public String password;
     public String email;
+
+    public UUID getUserId() {
+        return userId;
+    }
 }
