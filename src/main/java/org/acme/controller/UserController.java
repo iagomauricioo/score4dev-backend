@@ -35,7 +35,7 @@ public class UserController {
     @POST
     @Transactional
     public Response createUser(UserEntity user) {
-        return Response.ok(userService.createUser(user)).build();
+        return Response.status(Response.Status.CREATED).entity(userService.createUser(user)).build();
     }
 
     @PATCH

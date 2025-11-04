@@ -15,7 +15,6 @@ public class UserService {
     }
 
     public UserEntity createUser(UserEntity user) {
-
         UserEntity.persist(user);
         return user;
     }

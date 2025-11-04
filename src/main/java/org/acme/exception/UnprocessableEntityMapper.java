@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
+import org.acme.entity.dto.ErrorResponseDTO;
 
 import java.time.Instant;
 
@@ -14,7 +15,7 @@ public class UnprocessableEntityMapper implements ExceptionMapper<UnprocessableE
     public Response toResponse(UnprocessableEntityException exception) {
         return Response
                 .status(422)
-                .entity(new ErrorResponse(422, "Erro de validação", exception.getMessage()))
+                .entity(new ErrorResponseDTO(422, "Erro de validação", exception.getMessage()))
                 .build();
     }
 }
