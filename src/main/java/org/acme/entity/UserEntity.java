@@ -18,14 +18,4 @@ public class UserEntity extends PanacheEntityBase {
     public String email;
 
     protected UserEntity() {}
-
-    public UserEntity(Username username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
-
-    public UUID getUserId() {
-        return userId;
-    }
 }
